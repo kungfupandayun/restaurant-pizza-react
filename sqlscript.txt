@@ -1,0 +1,234 @@
+-- Create the Products table with productId as auto-incrementing integer
+CREATE TABLE Products (
+    productId INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    description TEXT,
+    price DECIMAL(10, 2),
+    thumbnail VARCHAR(255),
+    image VARCHAR(255),
+    promo VARCHAR(50)
+);
+
+-- Insert the first ten pizzas
+INSERT INTO Products (name, description, price, thumbnail, image, promo)
+VALUES
+    ('Margherita Marvel', 'Classic Margherita with fresh basil and mozzarella', 10.99, 'margherita_thumbnail.jpg', 'margherita_image.jpg', 'SPECIAL'),
+    ('Pepperoni Paradise', 'Classic pepperoni pizza with a crispy crust', 12.99, 'pepperoni_thumbnail.jpg', 'pepperoni_image.jpg', '20OFF'),
+    ('Veggie Delight', 'Loaded with assorted veggies for a flavorful experience', 11.99, 'veggie_thumbnail.jpg', 'veggie_image.jpg', 'FRESHVEG'),
+    ('BBQ Blast', 'Tangy BBQ sauce, grilled chicken, and red onions', 13.99, 'bbq_thumbnail.jpg', 'bbq_image.jpg', 'BBQSALE'),
+    ('Hawaiian Heatwave', 'Sweet and savory with ham and pineapple', 12.99, 'hawaiian_thumbnail.jpg', 'hawaiian_image.jpg', 'TROPICAL'),
+    ('Pesto Passion', 'Basil pesto, cherry tomatoes, and mozzarella', 14.99, 'pesto_thumbnail.jpg', 'pesto_image.jpg', 'SUMMER20'),
+    ('Meat Lovers\' Fiesta', 'A carnivore\'s delight with sausage, pepperoni, and bacon', 15.99, 'meatlovers_thumbnail.jpg', 'meatlovers_image.jpg', 'MEATYSAVINGS'),
+    ('Mediterranean Magic', 'Olives, artichokes, feta, and sun-dried tomatoes', 14.99, 'mediterranean_thumbnail.jpg', 'mediterranean_image.jpg', '15OFF'),
+    ('Buffalo Blue Bliss', 'Buffalo chicken, blue cheese, and celery', 13.99, 'buffalo_thumbnail.jpg', 'buffalo_image.jpg', 'SPICYSALE'),
+    ('Truffle Tango', 'Truffle oil, mushrooms, and caramelized onions', 16.99, 'truffle_thumbnail.jpg', 'truffle_image.jpg', 'GOURMET');
+
+-- Display the inserted data
+SELECT * FROM Products;
+
+-- Create the Ingredients table
+CREATE TABLE Ingredients (
+    ingredientId INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    unit_price DECIMAL(10, 2)
+);
+
+-- Insert ingredients into the table
+INSERT INTO Ingredients (name, unit_price)
+VALUES
+    ('Pizza Dough', 3.50),
+    ('Tomato Sauce', 1.50),
+    ('Mozzarella Cheese', 3.00),
+    ('Fresh Basil Leaves', 2.50),
+    ('Olive Oil', 4.00),
+    ('Pepperoni Slices', 3.50),
+    ('Bell Peppers', 1.50),
+    ('Mushrooms', 2.00),
+    ('Olives', 3.00),
+    ('Onions', 1.00),
+	('Ham', 4.50),
+	('Basil Pesto', 5.00),
+	('Cherry Tomatoes', 2.50),
+	('Sausage', 4.00),
+	('Bacon', 3.50),
+	('Artichoke Hearts', 3.50),
+	('Feta Cheese', 3.00),
+	('Buffalo Sauce', 2.50),
+	('Cooked Chicken Breast', 5.00),
+	('Truffle Oil', 8.00),
+	('Caramelized Onions', 2.50);
+	
+-- Display the inserted data
+SELECT * FROM Ingredients;
+
+-- Create the ProductIngredient table
+CREATE TABLE ProductIngredient (
+    productIngredientId INT AUTO_INCREMENT PRIMARY KEY,
+    productId INT,
+    ingredientId INT,
+    FOREIGN KEY (productId) REFERENCES Products(productId),
+    FOREIGN KEY (ingredientId) REFERENCES Ingredients(ingredientId)
+);
+
+-- Insert data into the ProductIngredient table for the first ten pizzas and their ingredients
+
+-- Margherita Marvel Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (1, 1), -- Pizza Dough
+    (1, 2), -- Tomato Sauce
+    (1, 3), -- Mozzarella Cheese
+    (1, 4); -- Fresh Basil Leaves
+
+-- Pepperoni Paradise Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (2, 1), -- Pizza Dough
+    (2, 2), -- Tomato Sauce
+    (2, 3), -- Mozzarella Cheese
+    (2, 6); -- Pepperoni Slices
+
+-- Veggie Delight Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (3, 1), -- Pizza Dough
+    (3, 2), -- Tomato Sauce
+    (3, 3), -- Mozzarella Cheese
+    (3, 7), -- Bell Peppers
+    (3, 8), -- Mushrooms
+    (3, 9); -- Olives
+
+-- BBQ Blast Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (4, 1), -- Pizza Dough
+    (4, 2), -- Tomato Sauce
+    (4, 3), -- Mozzarella Cheese
+    (4, 5), -- Olive Oil
+    (4, 10); -- Onions
+
+-- Hawaiian Heatwave Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (5, 1), -- Pizza Dough
+    (5, 2), -- Tomato Sauce
+    (5, 3), -- Mozzarella Cheese
+    (5, 4), -- Fresh Basil Leaves
+    (5, 11); -- Ham
+
+-- Pesto Passion Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (6, 1), -- Pizza Dough
+    (6, 2), -- Tomato Sauce
+    (6, 3), -- Mozzarella Cheese
+    (6, 12), -- Basil Pesto
+    (6, 13); -- Cherry Tomatoes
+
+-- Meat Lovers' Fiesta Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (7, 1), -- Pizza Dough
+    (7, 2), -- Tomato Sauce
+    (7, 3), -- Mozzarella Cheese
+    (7, 6), -- Pepperoni Slices
+    (7, 14), -- Sausage
+    (7, 15); -- Bacon
+
+-- Mediterranean Magic Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (8, 1), -- Pizza Dough
+    (8, 2), -- Tomato Sauce
+    (8, 3), -- Mozzarella Cheese
+    (8, 9), -- Olives
+    (8, 16), -- Artichoke Hearts
+    (8, 17); -- Feta Cheese
+
+-- Buffalo Blue Bliss Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (9, 1), -- Pizza Dough
+    (9, 2), -- Tomato Sauce
+    (9, 3), -- Mozzarella Cheese
+    (9, 18), -- Buffalo Sauce
+    (9, 19); -- Cooked Chicken Breast
+
+-- Truffle Tango Ingredients
+INSERT INTO ProductIngredient (productId, ingredientId) VALUES
+    (10, 1), -- Pizza Dough
+    (10, 2), -- Tomato Sauce
+    (10, 3), -- Mozzarella Cheese
+    (10, 5), -- Olive Oil
+    (10, 20), -- Truffle Oil
+    (10, 21); -- Caramelized Onions
+	
+CREATE TABLE Label (
+    labelId INT AUTO_INCREMENT PRIMARY KEY,
+    value VARCHAR(50) NOT NULL
+);
+
+-- Insert data for the labels
+INSERT INTO Label (value) VALUES
+    ('Vegetarian'),
+    ('Vegan'),
+    ('Seafood'),
+    ('Beef'),
+    ('Chicken'),
+    ('Fish'),
+    ('Prawn');
+
+
+-- Create ProductLabel table
+CREATE TABLE ProductLabel (
+    productId INT,
+    labelId INT,
+    PRIMARY KEY (productId, labelId),
+    FOREIGN KEY (productId) REFERENCES Products(productId),
+    FOREIGN KEY (labelId) REFERENCES Label(labelId)
+);
+
+-- Insert data for product-label associations
+-- Adjust productId and labelId values based on your actual data
+INSERT INTO ProductLabel (productId, labelId) VALUES
+    (1, 1),  -- Margherita Marvel is Vegetarian
+    (2, 4),  -- Pepperoni Paradise is Beef
+    (3, 1),  -- Veggie Delight is Vegetarian
+    (4, 4),  -- BBQ Blast is Beef
+    (5, 6),  -- Hawaiian Heatwave is Fish
+    (6, 1),  -- Pesto Passion is Vegetarian
+    (7, 4),  -- Meat Lovers' Fiesta is Beef
+    (8, 3),  -- Mediterranean Magic is Seafood
+    (9, 2),  -- Buffalo Blue Bliss is Vegan
+    (10, 1); -- Truffle Tango is Vegetarian
+
+
+-- Create Category table
+CREATE TABLE Category (
+    categoryId INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(255)
+);
+
+-- Insert data for the categories
+INSERT INTO Category (name, description) VALUES
+    ('Classic', 'Classic pizzas with timeless flavors'),
+    ('Favourite', 'Customer favorites with a special touch'),
+    ('Speciality', 'Unique and special pizzas for the adventurous'),
+    ('New', 'Fresh and innovative pizzas just added to the menu');
+	
+	
+-- Create ProductCategory table
+CREATE TABLE ProductCategory (
+    productId INT,
+    categoryId INT,
+    PRIMARY KEY (productId, categoryId),
+    FOREIGN KEY (productId) REFERENCES Products(productId),
+    FOREIGN KEY (categoryId) REFERENCES Category(categoryId)
+);
+
+-- Insert data for product-category associations
+-- Adjust productId and categoryId values based on your actual data
+INSERT INTO ProductCategory (productId, categoryId) VALUES
+    (1, 1),  -- Margherita Marvel is in the Classic category
+    (2, 2),  -- Pepperoni Paradise is in the Favourite category
+    (3, 1),  -- Veggie Delight is in the Classic category
+    (4, 3),  -- BBQ Blast is in the Speciality category
+    (5, 4),  -- Hawaiian Heatwave is in the New category
+    (6, 3),  -- Pesto Passion is in the Speciality category
+    (7, 2),  -- Meat Lovers' Fiesta is in the Favourite category
+    (8, 3),  -- Mediterranean Magic is in the Speciality category
+    (9, 4),  -- Buffalo Blue Bliss is in the New category
+    (10, 1); -- Truffle Tango is in the Classic category
+
