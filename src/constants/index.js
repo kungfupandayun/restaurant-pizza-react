@@ -1,4 +1,5 @@
 import { facebook, instagram, twitter } from "../assets/icons";
+import { Capricciosa,Hawaian, Margherita,Marinara,QuattroFormaggi,QuattroStagioni,Seafood } from "../assets/images";
 
 
 export const navLinks = [
@@ -10,13 +11,55 @@ export const navLinks = [
 ];
 
 export const menu = [
-    { src: "./src/assets/images/menu-1.jpg", text: "menu-1"},
-    { src: "./src/assets/images/menu-2.jpg", text: "menu-2"},
-    { src: "./src/assets/images/menu-3.jpg", text: "menu-3"},
-    { src: "./src/assets/images/menu-4.jpg", text: "menu-4"},
-    { src: "./src/assets/images/menu-5.jpg", text: "menu-5"},
-    { src: "./src/assets/images/menu-6.jpg", text: "menu-6"},
-    { src: "./src/assets/images/menu-7.jpg", text: "menu-7"}
+    {
+        "id": 1,
+        "image": Capricciosa,
+        "name": "Capricciosa 🍕",
+        "description": "A classic Italian pizza with artichokes, ham, mushrooms, and olives.",
+        "price": 24.50
+    },
+    {
+        "id": 2,
+        "image": Hawaian,
+        "name": "Hawaian 🍍",
+        "description": "Spicy chicken chunks together with pineapple chunks and onions, baked on a sweet and smoky BBQ sauce.",
+        "price": 23.80
+    },
+    {
+        "id": 3,
+        "image": Margherita,
+        "name": "Margherita 🍕",
+        "description": "A classic pizza topped with fresh mozzarella, tomatoes, and basil.",
+        "price": 21.50
+    },
+    {
+        "id": 4,
+        "image": Marinara,
+        "name": "Marinara 🍝",
+        "description": "A simple yet flavorful pizza with a rich tomato sauce and fresh basil.",
+        "price": 18.50
+    },
+    {
+        "id": 5,
+        "image": QuattroFormaggi,
+        "name": "Quattro Formaggi 🧀",
+        "description": "A delightful blend of four cheeses, creating a rich and creamy flavor.",
+        "price": 20.00
+    },
+    {
+        "id": 6,
+        "image": QuattroStagioni,
+        "name": "Quattro Stagioni 🍕",
+        "description": "A pizza divided into four sections, each with different toppings.",
+        "price": 22.00
+    },
+    {
+        "id": 7,
+        "image": Seafood,
+        "name": "Seafood 🍕",
+        "description": "A delicious seafood pizza topped with fresh ingredients.",
+        "price": 25.00
+    }
 ];
 
 

@@ -7,16 +7,18 @@ const Home = () => {
     <div className="relative
     flex flex-col justify-center items-center 
     w-full max-xl:padding-x pt-28 text-white">
-      <h2 className=" font-sans text-4xl xl:w-[50%] ">Perfect</h2>
-      <h1 className=" font-sans
+      <h2 className="font-sans text-4xl xl:w-[50%] outline-black outline-2">Perfect</h2>
+      <h1 className="font-sans
       text-16xl max-sm:text-[72px] 
-      max-sm:leading-[82px] font-extrabold mb-10">
-        <span className="text-red-800 border-white border-spacing-6">Pizza</span> To Go
+      max-sm:leading-[82px] font-extrabold mb-10 outline-black outline-2">
+        <span className="text-red-800 border-black border-spacing-6 outline-black outline-2">Pizza</span> To Go
       </h1>
-      <p className="font-sans text-4xl mb-10 ">Take Away & Delivery</p>
+      <p className="font-sans text-4xl mb-10 outline-black outline-2">Take Away & Delivery</p>
       <div className="relative flex flex-1 justify-between gap-10 text-2xl">
-        <Button className="mt-10" text="Order Online" borderColour="border-white"/>
-        <Button className="mt-10" text="Reserve a Place" borderColour="border-white"/>
+        <Button className="mt-10 outline-black outline-2" text="Order Online" borderColour="border-black"/>
+        <a href="/reservation">
+          <Button className="mt-10 outline-black outline-2" text="Reserve a Place" borderColour="border-black"/>
+        </a>
       </div>
     </div>
     </section>

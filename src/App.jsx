@@ -1,20 +1,25 @@
-import Nav from "./components/Nav"
-import Home from "./section/Home"
-import AboutUs from "./section/AboutUs"
-import Menu from "./section/Menu"
-import Reservation from "./section/Reservation"
-import Footer from "./section/Footer"
+
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AboutUsPage from './pages/AboutUsPage';
+import HomePage from "./pages/HomePage";
+import ReservationPage from "./pages/ReservationPage";
+import MenuPage from "./pages/MenuPage";
+import OrderOnlinePage from "./pages/OrderOnlinePage";
+
 function App() {
 
   return (
-    <main>
-      <Nav/>
-      <Home/>
-      <AboutUs/>
-      <Menu/>
-      <Reservation/>
-      <Footer/>
-    </main>
+    <Router>
+        <Routes>
+            {/* ...existing routes... */}
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/orderonline" element={<OrderOnlinePage />} />
+            <Route path="/reservation" element={<ReservationPage />} />
+        </Routes>
+    </Router>
   )
 }
 
